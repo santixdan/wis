@@ -7,94 +7,96 @@ let shoestem = [
         imagen: "./zapatos/pato1.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Negro-Rojo adidas Performance Response Runner",
-        precio: "$192.900"
+        precio: 192900
     },
     {
         imagen: "./zapatos/pato2.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Miel-Dorado Royal County of Berkshire Polo Club",
-        precio: "$109.900"
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato3.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul Raf-Coral-Negro adidas Performance",
-        precio: "$210.900"
+        precio: 210900
     },
     {
         imagen: "./zapatos/pato4.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul Grisáceo-Verde Neón-Negro adidas Performance",
-        precio: "$189.900"
+        precio: 189900
     },
     {
         imagen: "./zapatos/pato5.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul-Turquesa-Rosa adidas Performance Galaxy 6",
-        precio: "$264.900"
+        precio: 264900
     },
     {
         imagen: "./zapatos/pato6.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Negro-Coral-Gris adidas Performance Galaxy 6",
-        precio: "$213.900"
+        precio: 213900
     },
     {
         imagen: "./zapatos/pato7.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Blanco Royal County of Berkshire Polo Club",
-        precio: "$94.900"
+        precio: 94900
     },
     {
         imagen: "./zapatos/pato8.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Oro Rosa Royal County of Berkshire Polo Club",
-        precio: "$109.900"
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato9.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Marfil-Oro Rosa Royal County of Berkshire Polo Club",
-        precio: "$109.900"
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato11.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Malva-Blanco adidas Performance Runfalcon 3.0",
-        precio: "$230.900"
+        precio: 230900
     },
     {
         imagen: "./zapatos/pato12.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Blanco-Rosa Royal County of Berkshire Polo Club",
-        precio: "$109.900"
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato13.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro adidas Performance Response Runner",
-        precio: "$193.900"
+        precio: 193900
     },
     {
         imagen: "./zapatos/pato15.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Negro Royal County of Berkshire Polo Club",
-        precio: "$109.900"
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato16.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro-Blanco-Rojo adidas Performance Duramo SL",
-        precio: "$261.900"
+        precio: 261900
     },
     {
         imagen: "./zapatos/pato17.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro-Blanco adidas Performance Duramo SL",
-        precio: "$257.900"
+        precio: 257900
     },
 ]
+
 function aparecer() {
+    let totalizar = 0
     shoestem.forEach((item) => {
         let fila = document.createElement("tr");
         let celda = document.createElement("td");
@@ -118,7 +120,6 @@ function aparecer() {
             while (tableBody.firstChild) {
                 tableBody.removeChild(tableBody.firstChild);
             }
-            let totalizar = 0
             carrito.forEach((item) => {
                 let fila = document.createElement("tr");
                 let celda = document.createElement("td");
@@ -145,6 +146,8 @@ function aparecer() {
                 document.getElementById("modal-body").appendChild(fila)
                 // document.getElementById("zapatos").appendChild(ul)
             })
+            totalizar=totalizar+=item.precio
+            document.getElementById("totalpagar").textContent=`Total:${totalizar}`
         })
         celda.appendChild(anadir)
         fila.appendChild(celda)
@@ -165,5 +168,3 @@ function aparecer() {
     })
 
 }
-
-
