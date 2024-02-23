@@ -97,7 +97,7 @@ let shoestem = [
 
 function aparecer() {
     let totalizar = 0
-    let contador = 0
+    let contador = 1
     for (let i = 0; i < carrito.length; i++) {
         if (carrito[i].status === '0') {
             ;
