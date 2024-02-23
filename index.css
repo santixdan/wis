@@ -1,0 +1,70 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0px;
+    background-color: rgb(247, 246, 246);
+}
+/* ----- BANNER ----- */
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(197, 197, 197);
+    gap: 10%;
+}
+#img-icon{
+    width: 70px;
+}
+a{
+    text-decoration: none;
+}
+#ubi{
+    color: black;
+}
+.carrito{
+    background-color: white;
+    border-radius: 10px;
+}
+/* ----- CATEGORIAS ----- */
+.categorias{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.img-zap{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.modal-dialog{
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 30%;
+    transform: translate(0,-50%);
+}
+tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#zapatos{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 40px;
+}
+
+td img{
+    width: 80%;
+    /* text-align: center; */
+}
+td{
+    display: flex;
+    justify-content: center;
+}
+#modal-body tr td img{
+    width: 40%;
+}
+#modal-body tr{
+    display: flex;
+    flex-direction: row;
+}
