@@ -12,13 +12,15 @@
 <body onload="aparecer()">
     <div class="banner">
         <img src="./imagenes/ícono.png" id="img-icon">
-        <div class="lookfor">
+        <img src="./imagenes/name.png" id="img-logo">
+        <div class="otrohp">
+            <div class="lookfor">
             <input type="text" id="txt-look" placeholder="Buscar...">
-            <button id="btn-look">🔍</button>
+            <button id="btn-look" onclick="lugar()">🔍</button>
         </div>
-        <a href="" id="ubi">📍Donde recibe?</a>
+        <!-- <a id="ubi">📍Donde recibe?</a> -->
         <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">🛒<span id="contadorr"></span></button>
-
+        </div>
     </div>
     <div class="img-zap">
         <img src="./imagenes/zapato.png">
