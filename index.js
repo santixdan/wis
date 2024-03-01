@@ -150,9 +150,6 @@ function aparecer() {
                 celda = document.createElement("td");
                 celda.textContent = item.nombre
                 fila.appendChild(celda)
-                celda = document.createElement("td");
-                celda.textContent = item.descripcion
-                fila.appendChild(celda)
 
                 celda = document.createElement("td");
                 celda.textContent = item.precio
