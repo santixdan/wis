@@ -98,9 +98,12 @@ let shoestem = [
 function aparecer() {
     let totalizar = 0
     let contador = 1
+    let cant = 1
     shoestem.forEach((item) => {
         let fila = document.createElement("tr");
+        fila.id = "fila"
         let celda = document.createElement("td");
+
         let ul = document.createElement("ul")
         let li = document.createElement("li")
         li.textContent = item.imagen + ", " + item.nombre + ", " + item.descripcion + ", " + item.precio
@@ -112,6 +115,7 @@ function aparecer() {
         fila.appendChild(celda)
 
         celda = document.createElement("td");
+        celda.id = "nombre-zap"
         celda.textContent = item.nombre
         fila.appendChild(celda)
 
@@ -120,14 +124,21 @@ function aparecer() {
         fila.appendChild(celda)
 
         celda = document.createElement("td");
+        celda.id = "precio"
         celda.textContent = item.precio.toFixed(3)
-        fila.appendChild(celda) 
+        fila.appendChild(celda)
         celda = document.createElement("td");
         let anadir = document.createElement("button")
         anadir.textContent = "añadir ➕"
         anadir.addEventListener("click", () => {
-            carrito.push(item)
-            console.log(carrito);
+            const index = carrito.findIndex((element) => element.descripcion === item.descripcion);
+
+            if (index !== -1) {
+                carrito[index].cantidad += 1;
+            } else {
+                item.cantidad = 1;
+                carrito.push(item);
+            }
             let tableBody = document.getElementById("modal-body");
             while (tableBody.firstChild) {
                 tableBody.removeChild(tableBody.firstChild);
@@ -136,26 +147,58 @@ function aparecer() {
             document.getElementById("contadorr").textContent = contador++
             carrito.forEach((item) => {
                 let fila = document.createElement("tr");
+                fila.id = "fila2"
                 let celda = document.createElement("td");
                 let ul = document.createElement("ul")
                 let li = document.createElement("li")
                 li.textContent = item.imagen + ", " + item.nombre + ", " + item.descripcion + ", " + item.precio
                 ul.appendChild(li)
                 celda = document.createElement("td");
+                celda.id = "img-carrito"
                 let ima = document.createElement("img")
                 ima.src = item.imagen
                 celda.appendChild(ima)
                 fila.appendChild(celda)
 
                 celda = document.createElement("td");
+                celda.id = "nombre-zap"
                 celda.textContent = item.nombre
                 fila.appendChild(celda)
 
                 celda = document.createElement("td");
+                celda.id = "precio"
                 celda.textContent = item.precio.toFixed(3)
                 fila.appendChild(celda)
 
+                celda = document.createElement("button")
+                celda.id = "eliminar"
+                celda.textContent = "✖️"
+                celda.addEventListener("click", () => {
+                    const index = carrito.indexOf(item);
+                    if (index > -1) {
+                        contador = contador - 1;
+                        totalizar = totalizar - item.precio;
+                        document.getElementById('contadorr').textContent = contador - 1;
+                        document.getElementById("totalpagar").textContent = `Total:${totalizar.toFixed(3)}`
+                        document.getElementById("cantidad" + item.descripcion).textContent= `cantidad: ${item.cantidad-=1}` 
+                        const filaAEliminar = celda.closest('tr');
+                        if (filaAEliminar) {
+                            if(item.cantidad < 1){
+                                carrito.splice(index, 1);
+                                filaAEliminar.remove();
+                            }
+                            
+                        }
+                    }
+                })
+
                 fila.appendChild(celda)
+
+                celda = document.createElement("td");
+                celda.id = "cantidad" + item.descripcion
+                celda.textContent = `cantidad: ${item.cantidad}`
+                fila.appendChild(celda)
+
                 document.getElementById("modal-body").appendChild(fila)
             })
             totalizar = totalizar += item.precio
@@ -166,5 +209,4 @@ function aparecer() {
         document.getElementById("zapatos").appendChild(fila)
     })
 }
-
-
+console.log(carrito);
