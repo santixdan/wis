@@ -71,6 +71,9 @@ td img{
 td{
     text-align: center;
 }
+#anadir{
+    margin-bottom: 10%;
+}
 #img-carrito{
     /* display: flex; */
     width: 100%;
