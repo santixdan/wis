@@ -130,6 +130,7 @@ function aparecer() {
         celda = document.createElement("td");
         let anadir = document.createElement("button")
         anadir.textContent = "añadir ➕"
+        anadir.id="anadir"
         anadir.addEventListener("click", () => {
             const index = carrito.findIndex((element) => element.descripcion === item.descripcion);
 
