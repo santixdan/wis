@@ -173,7 +173,7 @@ function aparecer() {
 
                 celda = document.createElement("button")
                 celda.id = "eliminar"
-                celda.textContent = "✖️"
+                celda.textContent = "❌"
                 celda.addEventListener("click", () => {
                     const index = carrito.indexOf(item);
                     if (index > -1) {
