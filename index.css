@@ -1,9 +1,15 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0px;
-    background-color: rgb(247, 246, 246);
+    background-image: url(https://img.freepik.com/vector-premium/patron-zapatos-monocromo_146358-12.jpg);
 }
 /* ----- BANNER ----- */
+#fondooo{
+    filter: opacity(50%);
+    z-index: -10;
+    position: absolute;
+    background-repeat: calc(repeat);
+}
 .banner{
     display: flex;
     align-items: center;
@@ -46,6 +52,7 @@ body{
     align-items: center;
     box-shadow: 3px 5px 10px;
     margin: 7%;
+    background-color: white;
 }
 #fila2{
     display: grid;
@@ -57,7 +64,7 @@ body{
 #zapatos{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    /* margin-top: 10px; */
+    /* margin-top: 70px; */
     margin-left: 13%;
     margin-right: 13%;
 }
