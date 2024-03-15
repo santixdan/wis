@@ -1,103 +1,104 @@
 // TEMPORADA
 
 let carrito = []
+carrito.id = "carritto"
 
 let shoestem = [
     {
         imagen: "./zapatos/pato1.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Negro-Rojo adidas Performance Response Runner",
-        precio: 192.900
+        precio: 192900
     },
     {
         imagen: "./zapatos/pato2.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Miel-Dorado Royal County of Berkshire Polo Club",
-        precio: 109.900
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato3.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul Raf-Coral-Negro adidas Performance",
-        precio: 210.900
+        precio: 210900
     },
     {
         imagen: "./zapatos/pato4.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul Grisáceo-Verde Neón-Negro adidas Performance",
-        precio: 189.900
+        precio: 189900
     },
     {
         imagen: "./zapatos/pato5.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Azul-Turquesa-Rosa adidas Performance Galaxy 6",
-        precio: 264.900
+        precio: 264900
     },
     {
         imagen: "./zapatos/pato6.webp",
         nombre: "Adidas Performance",
         descripcion: "Tenis Running Negro-Coral-Gris adidas Performance Galaxy 6",
-        precio: 213.900
+        precio: 213900
     },
     {
         imagen: "./zapatos/pato7.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Blanco Royal County of Berkshire Polo Club",
-        precio: 94.900
+        precio: 94900
     },
     {
         imagen: "./zapatos/pato8.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Oro Rosa Royal County of Berkshire Polo Club",
-        precio: 109.900
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato9.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Marfil-Oro Rosa Royal County of Berkshire Polo Club",
-        precio: 109.900
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato11.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Malva-Blanco adidas Performance Runfalcon 3.0",
-        precio: 230.900
+        precio: 230900
     },
     {
         imagen: "./zapatos/pato12.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Blanco-Rosa Royal County of Berkshire Polo Club",
-        precio: 109.900
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato13.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro adidas Performance Response Runner",
-        precio: 193.900
+        precio: 193900
     },
     {
         imagen: "./zapatos/pato15.webp",
         nombre: "Royal County Of Berkshire Polo Club",
         descripcion: "Tenis Lifestyle Blanco-Negro Royal County of Berkshire Polo Club",
-        precio: 109.900
+        precio: 109900
     },
     {
         imagen: "./zapatos/pato16.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro-Blanco-Rojo adidas Performance Duramo SL",
-        precio: 261.900
+        precio: 261900
     },
     {
         imagen: "./zapatos/pato17.webp",
         nombre: "adidas Performance",
         descripcion: "Tenis Running Negro-Blanco adidas Performance Duramo SL",
-        precio: 257.900
+        precio: 257900
     },
 ]
-
+let totalizar = 0
+let contador = 1
 function aparecer() {
-    let totalizar = 0
-    let contador = 1
+
     let cant = 1
     shoestem.forEach((item) => {
         let fila = document.createElement("tr");
@@ -125,15 +126,14 @@ function aparecer() {
 
         celda = document.createElement("td");
         celda.id = "precio"
-        celda.textContent = item.precio.toFixed(3)
+        celda.textContent = item.precio.toLocaleString()
         fila.appendChild(celda)
         celda = document.createElement("td");
         let anadir = document.createElement("button")
         anadir.textContent = "añadir ➕"
-        anadir.id="anadir"
+        anadir.id = "anadir"
         anadir.addEventListener("click", () => {
             const index = carrito.findIndex((element) => element.descripcion === item.descripcion);
-
             if (index !== -1) {
                 carrito[index].cantidad += 1;
             } else {
@@ -168,7 +168,7 @@ function aparecer() {
 
                 celda = document.createElement("td");
                 celda.id = "precio"
-                celda.textContent = item.precio.toFixed(3)
+                celda.textContent = item.precio.toLocaleString()
                 fila.appendChild(celda)
 
                 celda = document.createElement("button")
@@ -180,15 +180,14 @@ function aparecer() {
                         contador = contador - 1;
                         totalizar = totalizar - item.precio;
                         document.getElementById('contadorr').textContent = contador - 1;
-                        document.getElementById("totalpagar").textContent = `Total:${totalizar.toFixed(3)}`
-                        document.getElementById("cantidad" + item.descripcion).textContent= `cantidad: ${item.cantidad-=1}` 
+                        document.getElementById("totalpagar").textContent = `Total: ${totalizar.toLocaleString()}`
+                        document.getElementById("cantidad" + item.descripcion).textContent = `cantidad: ${item.cantidad -= 1}`
                         const filaAEliminar = celda.closest('tr');
                         if (filaAEliminar) {
-                            if(item.cantidad < 1){
+                            if (item.cantidad < 1) {
                                 carrito.splice(index, 1);
                                 filaAEliminar.remove();
                             }
-                            
                         }
                     }
                 })
@@ -203,11 +202,23 @@ function aparecer() {
                 document.getElementById("modal-body").appendChild(fila)
             })
             totalizar = totalizar += item.precio
-            document.getElementById("totalpagar").textContent = `Total:${totalizar.toFixed(3)}`
+            document.getElementById("totalpagar").textContent = `Total: ${totalizar.toLocaleString()}`
         })
         celda.appendChild(anadir)
         fila.appendChild(celda)
         document.getElementById("zapatos").appendChild(fila)
     })
+}
+
+function borrarr() {
+    document.getElementById('contadorr').textContent = contador = "";
+    contador = 1;
+    totalizar = 0;
+    document.getElementById("totalpagar").textContent = `Total: ${totalizar.toLocaleString()}`
+    carrito = []
+    var elementoPadre = document.getElementById('modal-body');
+    while (elementoPadre.firstChild) {
+        elementoPadre.removeChild(elementoPadre.firstChild);
+    }
 }
 console.log(carrito);
