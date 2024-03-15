@@ -15,11 +15,12 @@
         <img src="./imagenes/name.png" id="img-logo">
         <div class="otrohp">
             <div class="lookfor">
-            <input type="text" id="txt-look" placeholder="Buscar...">
-            <button id="btn-look" onclick="lugar()">🔍</button>
-        </div>
-        <!-- <a id="ubi">📍Donde recibe?</a> -->
-        <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">🛒<span id="contadorr"></span></button>
+                <input type="text" id="txt-look" placeholder="Buscar...">
+                <button id="btn-look" onclick="lugar()">🔍</button>
+            </div>
+            <!-- <a id="ubi">📍Donde recibe?</a> -->
+            <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">🛒<span
+                    id="contadorr"></span></button>
         </div>
     </div>
     <div class="img-zap">
@@ -35,9 +36,9 @@
                 </div>
                 <div id="modal-body">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="display: grid; grid-template-columns: repeat(2, 1fr);">
                     <h3 id="totalpagar"></h3>
-                    <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" class="btn btn-primary" onclick="borrarr()">Vaciar carrito</button>
                 </div>
             </div>
         </div>
