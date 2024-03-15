@@ -36,6 +36,10 @@ body{
     justify-content: center;
     margin-top: 90px;
 }
+.modal-footer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 .modal-dialog{
     margin: 0;
     position: fixed;
